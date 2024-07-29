@@ -1,38 +1,38 @@
 body {
-	display: grid;
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	align-content: center;
-	font: 1.5em sans-serif;
-	margin: 0;
-	text-align: center;
-	-webkit-text-size-adjust: none;
+  display: grid;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  align-content: center;
+  font: 1.5em sans-serif;
+  margin: 0;
+  text-align: center;
+  -webkit-text-size-adjust: none;
 }
 .code {
-	cursor: pointer;
-	font-size: min(5em, 25vw);
-	user-select: all;
+  cursor: pointer;
+  font-size: min(5em, 25vw);
+  user-select: all;
 }
 .item-list {
-	display: flex;
-	border-top: 3px solid grey;
-	flex-wrap: wrap;
-	gap: 20px;
-	justify-content: center;
-	overflow: auto;
-	padding: 20px;
+  display: flex;
+  border-top: 3px solid grey;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  overflow: auto;
+  padding: 20px;
 }
 .item {
-	width: 300px;
-	height: 3em;
-	background: lightgrey;
-	border: none;
-	border-radius: 9em;
-	color: inherit;
-	cursor: pointer;
-	font: inherit;
+  width: 300px;
+  height: 3em;
+  background: lightgrey;
+  border: none;
+  border-radius: 9em;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
 }
 .item:hover {
-	background: darkgrey;
+  background: darkgrey;
 }
