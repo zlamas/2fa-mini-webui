@@ -28,6 +28,6 @@ if (isset($_GET['id'])) {
 <form class="item-list">
   <input type="hidden" name="user" value="<?= $user ?>">
 <?php foreach ($items as $_id => $_item) { ?>
-  <button class="item" name="id" value="<?= $_id ?>"><?= $_item['name'] ?></button>
+  <button class="item" name="id" value="<?= $_id ?>"><?= $_item['name'] ?>
 <?php } ?>
 </form>
