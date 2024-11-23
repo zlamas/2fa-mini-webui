@@ -14,6 +14,9 @@ if (isset($_GET['id'])) {
   $private_key = $item['key'];
   $key = trim(`oathtool -b --totp "$private_key"`);
 }
+$refresh_elapsed = time() % 30;
+
+header('Refresh: ' . 30 - $refresh_elapsed);
 
 ?>
 <!doctype html>
