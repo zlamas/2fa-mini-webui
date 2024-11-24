@@ -1,19 +1,14 @@
 <?php
 
-if (!isset($_GET['user'])) {
+$user = $_GET['user'];
+
+if (!isset($user)) {
   http_response_code(400);
   exit('Bad request');
 }
 
-$user = $_GET['user'];
 $file = file_get_contents($user.'.json');
 $items = json_decode($file, true);
-
-if (isset($_GET['id'])) {
-  $item = $items[$_GET['id']];
-  $private_key = $item['key'];
-  $key = trim(`oathtool -b --totp "$private_key"`);
-}
 $refresh_elapsed = time() % 30;
 
 header('Refresh: ' . 30 - $refresh_elapsed);
@@ -26,11 +21,13 @@ header('Refresh: ' . 30 - $refresh_elapsed);
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="main.css">
 
-<?php if (isset($key)) echo '<div>Код для входа в '.$item['name'].':</div>' ?>
-<div class="code"><?= $key ?? '------' ?></div>
-<form class="item-list">
-  <input type="hidden" name="user" value="<?= $user ?>">
-<?php foreach ($items as $_id => $_item) { ?>
-  <button class="item" name="id" value="<?= $_id ?>"><?= $_item['name'] ?>
+<?php
+foreach ($items as $item) {
+  $private_key = $item['key'];
+  $key = trim(`oathtool -b --totp "$private_key"`);
+?>
+<div class="item">
+  <div class="item-name"><?= $item['name'] ?></div>
+  <div class="key"><?= $key ?></div>
+</div>
 <?php } ?>
-</form>
