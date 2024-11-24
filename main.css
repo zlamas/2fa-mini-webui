@@ -19,3 +19,18 @@ body {
   font: 3em monospace;
   user-select: all;
 }
+.countdown {
+  position: fixed;
+  inset: 0;
+  height: 0.4em;
+  animation: 30s var(--delay) linear countdown;
+  background: #44F;
+}
+@keyframes countdown {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}

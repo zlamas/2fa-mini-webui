@@ -31,3 +31,4 @@ foreach ($items as $item) {
   <div class="key"><?= $key ?></div>
 </div>
 <?php } ?>
+<div class="countdown" style="--delay: -<?= $refresh_elapsed ?>s"></div>
