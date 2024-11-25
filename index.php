@@ -1,12 +1,11 @@
 <?php
 
-$user = $_GET['user'];
-
-if (!isset($user)) {
+if (!isset($_GET['user'])) {
   http_response_code(400);
   exit('Bad request');
 }
 
+$user = $_GET['user'];
 $file = file_get_contents($user.'.json');
 $items = json_decode($file, true);
 $refresh_elapsed = time() % 30;
